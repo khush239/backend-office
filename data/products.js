@@ -1,0 +1,76 @@
+const products = [
+  {
+    name: 'Ceramic Disc Capacitors Box',
+    description: 'High reliability through-hole ceramic disc capacitors assortment for electronic repair and manufacturing.',
+    categoryName: 'SMD Components',
+    subcategory: 'Capacitors',
+    images: ['/images/ceramic_capacitor.png'],
+    stock: 1500,
+  },
+  {
+    name: 'SMD Resistor Reel 10K Ohm',
+    description: 'High-quality 0805 Package 10K Ohm resistor tape and reel for pick and place assembly.',
+    categoryName: 'SMD Components',
+    subcategory: 'Resistors',
+    images: ['/images/smd_resistor_reel.png'],
+    stock: 500,
+  },
+  {
+    name: 'Assorted Toggle & Push Switches',
+    description: 'High quality industrial miniature toggle switches and red push buttons for panel mounting.',
+    categoryName: 'Switches',
+    subcategory: 'Toggle Switches',
+    images: ['/images/switches_assorted.png'],
+    stock: 400,
+  },
+  {
+    name: '7-Segment Bright Red LED Display',
+    description: 'Common anode 7-segment digital numeric LED display for digital clocks and counters.',
+    categoryName: 'LED & Display Solutions',
+    subcategory: '7-Segment Displays',
+    images: ['/images/led_display.png'],
+    stock: 350,
+  },
+  {
+    name: '16x2 Character LCD Display Module',
+    description: '16x2 alphanumeric LCD display with bright green backlight for microcontroller projects.',
+    categoryName: 'LED & Display Solutions',
+    subcategory: 'LCD Displays',
+    images: ['/images/lcd_display.png'],
+    stock: 85,
+  },
+  {
+    name: 'Heatshrink Tubing Assortment Kit',
+    description: 'Industrial grade colorful heat shrink tubes assortment box for wire insulation and repair.',
+    categoryName: 'Heat Management',
+    subcategory: 'Heat Shrink Tubes',
+    images: ['/images/heatshrink_tubing.png'],
+    stock: 250,
+  },
+  {
+    name: 'Premium Solder Paste',
+    description: 'High quality industrial solder paste for SMT PCB assembly and rework.',
+    categoryName: 'Soldering Materials',
+    subcategory: 'Solder Paste',
+    images: ['/images/solder_paste.png'],
+    stock: 120,
+  },
+  {
+    name: 'Solder Wire & Flux Paste Spool',
+    description: 'Rosin core high purity solder wire spool bundled with PCB soldering flux paste.',
+    categoryName: 'Soldering Materials',
+    subcategory: 'Solder Wire',
+    images: ['/images/solder_materials.png'],
+    stock: 300,
+  },
+  {
+    name: 'Custom Multi-Wire Cable Harness',
+    description: 'Customized multi-wire cable harness tailored with versatile connectors for industrial integration.',
+    categoryName: 'Connectors & Wiring',
+    subcategory: 'Cable Harness',
+    images: ['/images/cable_harness.png'],
+    stock: 75,
+  }
+];
+
+module.exports = products;
