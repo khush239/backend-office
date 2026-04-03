@@ -10,7 +10,8 @@ const connectDB = async () => {
 
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of hanging for 10s
+      serverSelectionTimeoutMS: 5000, // Timeout faster
+      family: 4, // Force IPv4 to fix Vercel Node 18+ IPv6 SRV cluster routing timeouts
     });
     cachedConnection = conn;
     console.log(`MongoDB Connected: ${conn.connection.host}`);
