@@ -10,12 +10,14 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const authRoutes = require('./routes/authRoutes');
 const inquiryRoutes = require('./routes/inquiryRoutes');
 
-// Connect to database
-
-// Connect to database
-connectDB();
-
 const app = express();
+
+// Native Vercel Serverless Database Middleware
+// Guarantees Mongoose connection finishes establishing before Express handlers execute
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
 
 // Middleware
 app.use(cors());
