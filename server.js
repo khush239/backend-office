@@ -15,8 +15,12 @@ const app = express();
 // Native Vercel Serverless Database Middleware
 // Guarantees Mongoose connection finishes establishing before Express handlers execute
 app.use(async (req, res, next) => {
-  await connectDB();
-  next();
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).json({ message: 'Database Connection Failed natively' });
+  }
 });
 
 // Middleware
