@@ -12,15 +12,14 @@ const inquiryRoutes = require('./routes/inquiryRoutes');
 
 const app = express();
 
-// Native Vercel Serverless Database Middleware
-// Guarantees Mongoose connection finishes establishing before Express handlers execute
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (error) {
-    res.status(500).json({ message: 'Database Connection Failed natively' });
-  }
+// Native Vercel Serverless Database Middleware (Promise-chained for Express 4 safety)
+app.use((req, res, next) => {
+  connectDB()
+    .then(() => next())
+    .catch((error) => {
+      console.error('Middleware database drop:', error.message);
+      res.status(500).json({ message: 'Database Connection Failed natively' });
+    });
 });
 
 // Middleware
