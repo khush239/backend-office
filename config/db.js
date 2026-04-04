@@ -4,6 +4,16 @@ let cached = global.mongoose;
 
 if (!cached) {
   cached = global.mongoose = { conn: null, promise: null };
+  // CRITICAL VERCEL FIX: Catch asynchronous TCP connection drops so Node doesn't hard-crash
+  mongoose.connection.on('error', (err) => {
+    console.error('Mongoose global passive error caught:', err);
+  });
+  // Cleanly wipe the global cache if Vercel natively kills the socket, so the next request reconnects instantly
+  mongoose.connection.on('disconnected', () => {
+    console.log('Mongoose connection dropped cleanly. Dropping cache...');
+    global.mongoose.conn = null;
+    global.mongoose.promise = null;
+  });
 }
 
 const connectDB = async () => {
